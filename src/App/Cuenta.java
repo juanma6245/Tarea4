@@ -62,7 +62,7 @@ public class Cuenta {
 			saldo = saldo - cantidad;
 			this.movimientos.add(new Movimiento(cantidad, SIGNO.D, "Se ha reducido el saldo"));
 		} else {
-			throw new Exception("Saldo Insuficiente");
+			throw new Exception("Saldo Insuficiente en la cuenta " + this.numero + ", no se puede retirar " + cantidad + " saldo actual de " + this.saldo);
 		}
 		
 	}
