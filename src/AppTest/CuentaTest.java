@@ -23,7 +23,7 @@ public class CuentaTest {
 		double saldoInicial = cuenta1.getSaldo();
 		double ingreso = 100;
 		cuenta1.ingreso(ingreso);
-		assertEquals(saldoInicial+ingreso, cuenta1.getSaldo());
+		assertEquals((long)(saldoInicial + ingreso), (long)cuenta1.getSaldo());
 	}
 
 	@Test
@@ -31,7 +31,7 @@ public class CuentaTest {
 		double saldoInicial = cuenta1.getSaldo();
 		double reintegro = 100;
 		cuenta1.reintegro(reintegro);;
-		assertEquals(saldoInicial-reintegro, cuenta1.getSaldo());
+		assertEquals((long)(saldoInicial-reintegro), (long)cuenta1.getSaldo());
 	}
 
 }
