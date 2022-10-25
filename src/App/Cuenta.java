@@ -1,5 +1,6 @@
 package App;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Cuenta {
@@ -16,6 +17,7 @@ public class Cuenta {
 		this.numero = numero;
 		this.titular = titular;
 		this.saldo = saldo;
+		this.movimientos = new ArrayList<Movimiento>();
 	}
 
 	public String getNumero() {
@@ -52,9 +54,16 @@ public class Cuenta {
 
 	public void ingreso(double cantidad) {
 		saldo = saldo + cantidad;
+		this.movimientos.add(new Movimiento(cantidad, SIGNO.H, "Se ha aumentado el saldo"));
 	}
 
-	public void reintegro(double cantidad) {
-		saldo = saldo - cantidad;
+	public void reintegro(double cantidad) throws Exception {
+		if(saldo - cantidad >= -500) {
+			saldo = saldo - cantidad;
+			this.movimientos.add(new Movimiento(cantidad, SIGNO.D, "Se ha reducido el saldo"));
+		} else {
+			throw new Exception("Saldo Insuficiente");
+		}
+		
 	}
 }

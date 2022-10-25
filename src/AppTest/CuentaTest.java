@@ -30,7 +30,11 @@ public class CuentaTest {
 	public void testReintegro() {
 		double saldoInicial = cuenta1.getSaldo();
 		double reintegro = 100;
-		cuenta1.reintegro(reintegro);;
+		try {
+			cuenta1.reintegro(reintegro);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		};
 		assertEquals((long)(saldoInicial-reintegro), (long)cuenta1.getSaldo());
 	}
 
